@@ -1,5 +1,4 @@
-﻿using BepInEx;
-using System;
+using BepInEx;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -11,12 +10,19 @@ namespace NameTags
     public class Plugin : BaseUnityPlugin
     {
         private List<VRRig> ntGiven = new List<VRRig> { };
+
+        void Awake()
+        {
+            gameObject.AddComponent<Managers.Friends>();
+            gameObject.AddComponent<Managers.Voice>();
+        }
+
         void Update()
         {
             if (GorillaLocomotion.GTPlayer.Instance == null)
                 return;
 
-            foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+            foreach (VRRig vrrig in GameObject.FindObjectsOfType<VRRig>())
             {
                 if (vrrig != GorillaTagger.Instance.offlineVRRig && !ntGiven.Contains(vrrig))
                 {
@@ -24,6 +30,7 @@ namespace NameTags
 
                     GameObject NameTagObject = LoadAsset("NameTag");
                     NameTagObject.transform.SetParent(vrrig.headMesh.transform, false);
+                    NameTagObject.transform.localPosition = new Vector3(0, 0.25f, 0);
 
                     GameObject Canvas = NameTagObject.transform.Find("Canvas").gameObject;
 
