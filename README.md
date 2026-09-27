@@ -7,7 +7,7 @@ A completely original name tag mod, inspired by [The-Graze's WhoIsTalking](https
 
 # Installation
 
-- Download the release from [here](https://github.com/iiDk-the-actual/NameTags/releases/latest)
+- Download the release from [here](<https://github.com/iiDkRemastered/NameTags/releases/latest>)
 - Drag the file `NameTags.dll` to your plugins folder
 - Start Gorilla Tag if needed
 
