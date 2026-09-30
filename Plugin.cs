@@ -26,7 +26,7 @@ namespace NameTags
 
             nextScan = Time.time + 2f;
 
-            foreach (VRRig vrrig in GameObject.FindObjectsOfType<VRRig>())
+            foreach (VRRig vrrig in GameObject.FindObjectsByType<VRRig>(FindObjectsSortMode.None))
             {
                 if (vrrig != GorillaTagger.Instance.offlineVRRig && !ntGiven.Contains(vrrig))
                 {
