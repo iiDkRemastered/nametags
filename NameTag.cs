@@ -47,7 +47,7 @@ namespace NameTags
                     speakerImage.enabled = isSpeaking && speakerImage.texture != null;
                 }
 
-                text.color = rig.mainSkin.material.name.Contains("fected") ? new Color(1f, 0.5f, 0f, 1) : rig.playerColor;
+                text.color = rig.mainSkin.sharedMaterial.name.Contains("fected") ? new Color(1f, 0.5f, 0f, 1) : rig.playerColor;
             } else if (text != null)
             {
                 text.text = "null";

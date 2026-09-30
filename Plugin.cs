@@ -17,10 +17,14 @@ namespace NameTags
             gameObject.AddComponent<Managers.Voice>();
         }
 
+        private float nextScan;
+
         void Update()
         {
-            if (GorillaLocomotion.GTPlayer.Instance == null)
+            if (GorillaLocomotion.GTPlayer.Instance == null || Time.time < nextScan)
                 return;
+
+            nextScan = Time.time + 2f;
 
             foreach (VRRig vrrig in GameObject.FindObjectsOfType<VRRig>())
             {
